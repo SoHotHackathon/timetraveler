@@ -1,0 +1,17 @@
+.record-list {
+  margin: 2rem 10rem;
+  display: flex;
+  justify-content: space-between;
+
+  // align-items: center;
+  .record-box {
+    .record-pic {
+      width: 150px;
+      height: 200px;
+      border: none;
+      border-radius: 5px;
+    }
+    
+  }
+
+}

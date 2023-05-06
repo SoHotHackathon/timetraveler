@@ -4,6 +4,7 @@ import StartPage from './pages/StartPage/StartPage';
 import MainPage from './pages/MainPage/MainPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ChatPage from './pages/ChatPage/ChatPage';
+import RecordPage from './pages/RecordPage/RecordPage';
 
 function App() {
   return (
