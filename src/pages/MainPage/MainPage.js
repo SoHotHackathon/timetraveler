@@ -57,11 +57,11 @@ function MainPage() {
           <Box name="빌게이츠" birth="1950" onClick={profileButtonClick} photo={url2} />
           <Box name="세르게이 브린" birth="1976" onClick={profileButtonClick} photo={url3} /> */}
         </div>
-        <div className='container'>
+        {/* <div className='container'>
           <Box name="폰노이만" birth="1899" onClick={profileButtonClick} photo={url1} />
           <Box name="빌게이츠" birth="1950" onClick={profileButtonClick} photo={url2} />
           <Box name="세르게이 브린" birth="1976" onClick={profileButtonClick} photo={url3} />
-        </div>
+        </div> */}
         <div className='category-list'>
           <CategoryBox categoryname="철학자" />
           <CategoryBox categoryname="공학자" />
