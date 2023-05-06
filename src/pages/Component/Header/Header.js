@@ -5,7 +5,7 @@ import { faMagnifyingGlass, faHouse, faUser, faChartColumn } from '@fortawesome/
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-function Header() {
+function Header({onClick}) {
   const movePage = useNavigate();
   const location = useLocation();
   const isStartPage = location.pathname==='/';
@@ -61,7 +61,7 @@ function Header() {
           <button className='iconBtn'><FontAwesomeIcon icon={faChartColumn} /></button>
         )}
         <button className={`iconBtn ${bgColorClass}`} onClick={navigateToHome}><FontAwesomeIcon icon={faHouse} /></button>
-        <button className={`iconBtn ${bgColorClass}`}><FontAwesomeIcon icon={faUser} /></button>
+        <button className={`iconBtn ${bgColorClass}`} onClick={onClick}><FontAwesomeIcon icon={faUser} /></button>
       </div>
     </header>
   );
