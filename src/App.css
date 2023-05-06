@@ -37,11 +37,6 @@
   }
 }
 
-@font-face {
-  font-family: "KyoboSJY";
-  src: url("./fonts/KyoboHandwriting2021sjy.ttf");
-} 
-
 ::-webkit-scrollbar {
   display: none;
 }
