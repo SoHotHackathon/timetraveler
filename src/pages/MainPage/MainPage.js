@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from './Box/Box';
 import './MainPage.scss';
 import Header from '../Component/Header/Header';
 import CategoryBox from './CategoryBox/CategoryBox';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 function MainPage() {
+  const [showModal, setShowModal] = useState(false);
+  const handleButtonClick = () => {
+    setShowModal(true);
+  }
+  const handleModalClose = () => {
+    setShowModal(false);
+  }
+
 
   return (
     <div className='fullPage'>
+      {showModal && (
+        <ProfilePage onClose={handleModalClose} />
+      )}
       <Header />
       <div className='mainPage'>
         <div className='container'>
-          <Box name="아이유" />
-          <Box name="손흥민" />
-          <Box name="이순신" />
+          <Box name="아이유" onClick={handleButtonClick} />
+          <Box name="손흥민" onClick={handleButtonClick} />
+          <Box name="이순신" onClick={handleButtonClick} />
         </div>
         <div className='container'>
-          <Box name="잡스" />
-          <Box name="박지성" />
-          <Box name="몰라" />
+          <Box name="잡스" onClick={handleButtonClick} />
+          <Box name="박지성" onClick={handleButtonClick} />
+          <Box name="몰라" onClick={handleButtonClick} />
         </div>
         <div className='category-list'>
           <CategoryBox categoryname="철학자" />

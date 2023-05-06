@@ -28,17 +28,17 @@ function Header() {
   return (
     <header className={`${bgColorClass}`}>
       <h1>시간여행</h1>
-      {!isMainPage ? null : (
+      {isMainPage && (
         <div className='inputBox'>
           <button className='inputBtn'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-          <input className='inputField'/>
+          <input className='inputField' placeholder='검색'/>
         </div>
       )}
       <div className='buttonGroup'>
-        {!isStartPage ? null : (
+        {isStartPage && (
           <button className='startBtn' onClick={navigateToMain}>시작하기</button>
         )}
-        {!isMainPage ? null : (
+        {isMainPage && (
           <button className='iconBtn'><FontAwesomeIcon icon={faChartColumn} /></button>
         )}
         <button className={`iconBtn ${bgColorClass}`} onClick={navigateToHome}><FontAwesomeIcon icon={faHouse} /></button>

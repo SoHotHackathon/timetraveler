@@ -3,8 +3,14 @@ import './StartPage.scss';
 import Header from '../Component/Header/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function StartPage() {
+    const movePage = useNavigate();
+    const navigateToMain = () => {
+        movePage("/MainPage");
+    };
+
     return (
         <div>
             <Header></Header>
