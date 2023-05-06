@@ -45,10 +45,10 @@ header {
         cursor: pointer;
     }
 
-    button.start {
+    .startBtn {
         font-size: 1.6rem;
         font-weight: bold;
-        background-color: #DDDDDD;
+        background-color: #1e1f21;
         color: #a68b5a;
         border-radius: 1.6rem;
         border: none;
@@ -58,7 +58,7 @@ header {
         cursor: pointer;
     }
 
-    button.iconBtn {
+    .iconBtn {
         background-color: transparent;
         color: #DDDDDD;
         border: none;
@@ -67,4 +67,12 @@ header {
         margin-top: 1rem;
         cursor: pointer;
     }
+
+    .iconBtn.start {
+        color: #1e1f21;
+    }
+}
+
+header.start {
+    background-color: transparent;
 }
