@@ -3,10 +3,10 @@ import "./Box.scss"
 
 const Box = (props) => {
     let Name = props.name;
-
+    let backgroundColor = props.color;
 
     return (
-        <div className='box' onClick={props.onClick}>
+        <div className='box' onClick={props.onClick} style={backgroundColor}>
             <p>{Name}</p>
         </div>
     );

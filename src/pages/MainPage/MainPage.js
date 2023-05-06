@@ -23,7 +23,7 @@ function MainPage() {
       <Header />
       <div className='mainPage'>
         <div className='container'>
-          <Box name="아이유" onClick={handleButtonClick} />
+          <Box name="아이유" onClick={handleButtonClick} color="linear-gradient(62deg, #FBAB7E, #F7CE68)"/>
           <Box name="손흥민" onClick={handleButtonClick} />
           <Box name="이순신" onClick={handleButtonClick} />
         </div>
