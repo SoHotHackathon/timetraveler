@@ -21,7 +21,7 @@ function Article(){
 function StartPage() {
     return (
         <div>
-            <Header></Header>
+            <Header />
             <Nav></Nav>
             <Article></Article>
         </div>
