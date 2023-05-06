@@ -3,7 +3,7 @@ import "./Box.scss"
 
 const Box = (props) => {
     let Name = props.name;
-    let backgroundColor = props.color;
+    // let backgroundColor = props.color;
 
     return (
         <div className='box' onClick={props.onClick} >
