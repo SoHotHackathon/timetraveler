@@ -28,6 +28,12 @@ function ChatPage() {
           <li className='sent message'>
             <span>공부가 하기 싫어요</span>
           </li>
+          <li className='sent message'>
+            <span>공부가 하기 싫어요</span>
+          </li>
+          <li className='received message'>
+            <span>열심히 하세요.</span>
+          </li>
         </ul>
       </div>
       <div className='input-container'>

@@ -16,7 +16,8 @@
     justify-content: space-between;
     align-items: center;
 
-    .back-icon, .save-icon {
+    .back-icon,
+    .save-icon {
       color: rgb(85, 87, 88);
       font-size: 2rem;
     }
@@ -30,6 +31,7 @@
         margin: 0.5rem 0;
         font-size: 3.5rem;
       }
+
       .profile-name {
         color: rgb(115, 114, 114);
       }
@@ -50,19 +52,9 @@
 
       li {
         display: flex;
+        // margin: 50px;
         // justify-content: flex-start;
         // align-items: flex-end;
-      }
-
-      .sent {
-        border: 2px solid rgb(94, 221, 249);
-        height: 80%;
-        flex-direction: row-reverse;
-      }
-
-      .received {
-        border: 2px solid pink;
-        height: 80%;
       }
 
       .message {
@@ -71,6 +63,23 @@
         font-size: 20px;
         margin: 0.5rem;
       }
+
+      .sent {
+        border: 2px solid rgb(94, 221, 249);
+        height: 80%;
+        flex-direction: row-reverse;
+        text-align: right;
+        margin-left: 50px;
+      }
+
+      .received {
+        border: 2px solid pink;
+        height: 80%;
+        text-align: left;
+        margin-right: 50px;
+      }
+
+
     }
   }
 
@@ -80,17 +89,20 @@
     display: flex;
     justify-content: stretch;
     align-items: stretch;
+
     span {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       width: 100%;
+
       .chat-input {
         height: 100%;
         border: none;
         flex: 8;
         font-size: 15px;
       }
+
       .send-btn {
         height: 100%;
         border: none;
