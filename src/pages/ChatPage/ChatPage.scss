@@ -1,0 +1,70 @@
+.ChatPage {
+  // width: 1000px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // overflow: hidden; 넘치는거 숨기기
+
+  .chat-head {
+    background-color: rgba(240, 248, 255, 0.688);
+    flex: 2;
+    border-bottom: 1px solid gray;
+    .profile-icon {
+      color: rgb(225, 230, 234);
+      margin-top: 0.5rem;
+      font-size: 3.5rem;
+    }
+
+  }
+
+  .display-container {
+    // background-color: white;
+    flex: 12;
+    overflow-y: scroll; // 채팅 길어지면 스크롤
+    
+    .chat-list {
+      padding: 0;
+      list-style: none;
+      color: azure;
+      li {
+        display: flex;
+        // justify-content: flex-start;
+        // align-items: flex-end;
+      }
+      .sent {
+        border: 2px solid rgb(94, 221, 249);
+        height: 80%;
+        flex-direction: row-reverse;
+      }
+      .received {
+        border: 2px solid pink;
+        height: 80%;
+      }
+      .message {
+        border-radius: 3px;
+        padding: 0.5rem;
+        font-size: 20px;
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  .input-container {
+    flex: 2;
+    // display: flex;
+    // justify-content: stretch;
+    // align-items: stretch;
+
+    .chat-input {
+      height: 100%;
+      border: none;
+    }
+
+    .send-btn {
+      height: 100%;
+      border: none;
+      border-radius: 5px;
+      background-color: yellow;
+    }
+  }
+}

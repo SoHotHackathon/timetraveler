@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StartPage from './pages/StartPage/StartPage';
 import MainPage from './pages/MainPage/MainPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ChatPage from './pages/ChatPage/ChatPage';
 
 function App() {
   return (
