@@ -1,34 +1,24 @@
-.FullPage {
-  .MainPage {
-    // height: 100vh;
-    width: 100vw;
-    background-image: url(background-film.png);
-    background-color: gray;
-    background-size: 1550px 600px;
-    background-position-x: -7px;
-    background-position-y: 115px;
-    background-repeat: no-repeat;
-    padding-bottom: 13%;
+.mainPage {
+  display: flex;
+  background-image: url(background-film.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+  height: calc(100vh - 12.5rem);
+  padding: 3.4rem 0;
+  justify-content: space-between;
+  flex-direction: column;
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(3, 200px);
-      grid-template-rows: repeat(2, 200px);
-      height: 100%;
-      gap: 15px;
-      justify-content: center;
-      align-items: center;
-      padding-top: 12%;
-    }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 10rem;
+  }
 
     .category-list {
-      display: grid;
-      grid-template-columns: repeat(7, 120px);
-      gap: 20px;
-      position: fixed;
-      bottom: 11%;
-      left: 50%;
-      transform: translate(-50%, 50%);
-    }
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 3rem;
   }
 }
