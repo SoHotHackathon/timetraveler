@@ -5,37 +5,25 @@ import Header from '../Component/Header/Header';
 import CategoryBox from './CategoryBox/CategoryBox';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import RecordPage from '../RecordPage/RecordPage';
+import axios from 'axios';
 
 function MainPage() {
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/chat/people', {
-  //     method: 'GET',
-  //     mode:'no-cors',
-  //     headers: {
-  //       'Accept': '*/*',
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => setData(data))
-  //     .then(error => console.error(error))
-  // }, []);
-  const getData = async() => {
-    const res = await fetch(
-      'http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/people',
-      {
-        mode: 'no-cors'
-      }
-    ).then((res) => res.json())
-    .then((myjson) => console.log(JSON.stringify(myjson)));
-  }
   useEffect(() => {
-    getData();
-    console.log(data);
-  }, [])
+    axios.get('http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/people')
+      .then(response => setData(response.data));
+  }, []);
+
+  const renderPeople = () => {
+    const listItems = [];
+    for (const d of data) {
+      listItems.push(<Box name={d.name} birth={d.birthDate} onClick={profileButtonClick} photo={d.photoUrl} />)
+    }
+    return listItems;
+  }
 
   const profileButtonClick = () => {
     setShowModal1(true);
@@ -64,9 +52,10 @@ function MainPage() {
       <Header onClick={recordButtonClick}/>
       <div className='mainPage'>
         <div className='container'>
-          <Box name="폰노이만" birth="1899" onClick={profileButtonClick} photo={url1} />
+          {renderPeople()}
+          {/* <Box name={data[0].name ? "" :data[0].name} birth="1899" onClick={profileButtonClick} photo={url1} />
           <Box name="빌게이츠" birth="1950" onClick={profileButtonClick} photo={url2} />
-          <Box name="세르게이 브린" birth="1976" onClick={profileButtonClick} photo={url3} />
+          <Box name="세르게이 브린" birth="1976" onClick={profileButtonClick} photo={url3} /> */}
         </div>
         <div className='container'>
           <Box name="폰노이만" birth="1899" onClick={profileButtonClick} photo={url1} />
@@ -83,12 +72,6 @@ function MainPage() {
           <CategoryBox categoryname="연예인" />
         </div>
       </div>
-      {data.map(item => (
-        <div>
-          <h1>afd</h1>
-          <h1>{item.name}</h1>
-        </div>
-      ))}
     </div>
 
   );
