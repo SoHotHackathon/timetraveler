@@ -6,7 +6,7 @@ import Header from '../Component/Header/Header';
 function MainPage() {
     return (
         <div>
-          {/* <Header /> */}
+          <Header />
           <div className='container'>
             <Box name="아이유"/>
             <Box name="손흥민"/>
