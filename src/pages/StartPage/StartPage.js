@@ -3,8 +3,14 @@ import './StartPage.scss';
 import Header from '../Component/Header/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function StartPage() {
+    const movePage = useNavigate();
+    const navigateToMain = () => {
+        movePage("/MainPage");
+    };
+
     return (
         <div>
             <Header></Header>
@@ -16,6 +22,7 @@ function StartPage() {
             <div className='introTxt'>과거와 미래를 넘나들며 새로운 이야기를 만나보세요.</div>
             <div className='introTxt'>세계적인 인물들과 대화하는 시간여행, 지금부터 시작합니다.</div>
             <div className='introTxt'>과거와 미래를 넘나들며 새로운 시각을 발견해보세요.</div>
+            <button className='startButton' onClick={navigateToMain}>시작하기</button>
         </div>
     );
 }
