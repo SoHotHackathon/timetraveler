@@ -7,11 +7,23 @@ header {
     position: sticky;
     top: 0; left: 0; right: 0;
 
+    @keyframes cursor {
+        to {
+            border-color: transparent;
+        }
+    }
+    
     h1 {
+        height: 4.2rem;
         font-size: 3.5rem;
         font-weight: bold;
         color: #DDDDDD;
         margin: 0;
+
+        display: table-cell;
+        vertical-align: middle;
+        border-right: 0.1em solid white; 
+        animation: cursor 0.95s ease infinite;
     }
 
     .inputBox {

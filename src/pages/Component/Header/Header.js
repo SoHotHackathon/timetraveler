@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHouse, faUser, faChartColumn } from '@fortawesome/free-solid-svg-icons';
@@ -18,16 +18,35 @@ function Header() {
   };
 
   let bgColorClass = '';
+  let curTxt = '';
+  let curIdx = 0;
 
   if (isStartPage) {
     bgColorClass = 'start';
   } else if (isMainPage) {
     bgColorClass = 'main';
+    curTxt = "시간여행";
+    curIdx = curTxt.length;
   }
+
+  const [text, setText] =  useState(curTxt)
+  const [fullText, setFullText] = useState(
+      "시간여행"
+  )
+  const [index, setIndex] = useState(curIdx)
+
+  useEffect(() => {
+    if (index < fullText.length) {
+      setTimeout(() => {
+          setText(text + fullText[index])
+          setIndex(index + 1)
+      }, 800)
+    } 
+  }, [index])
 
   return (
     <header className={`${bgColorClass}`}>
-      <h1>시간여행</h1>
+      <h1>{text}</h1>
       {isMainPage && (
         <div className='inputBox'>
           <button className='inputBtn'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
