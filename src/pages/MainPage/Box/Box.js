@@ -2,7 +2,6 @@ import React from 'react';
 import "./Box.scss"
 
 const Box = (props) => {
-    console.log(props.photo);
     const styles =  {
         back: {
             backgroundImage: `url("${props.photo}")`,

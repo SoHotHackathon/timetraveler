@@ -5,7 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-function ProfilePage({onClose}) {
+function ProfilePage(props) {
   const [selectMBTI, setSelectedMBTI] = useState('ISTJ');
   const [selectJOB, setSelectedJOB] = useState('대학생');
   const [inputAge, setInputAge] = useState(20);
@@ -22,6 +22,7 @@ function ProfilePage({onClose}) {
   }
   const handleInputGenderChange = (event) => {
     setInputGender(event.target.value);
+    console.log(props.id);
   }
   const movePage = useNavigate();
     const navigateToChat = () => {
@@ -31,7 +32,7 @@ function ProfilePage({onClose}) {
   return (
     <div className='ProfilePage'>
       <div className='Profile'>
-        <button className='xBtn' onClick={onClose}><FontAwesomeIcon icon={faXmark} /></button>
+        <button className='xBtn' onClick={props.onClose}><FontAwesomeIcon icon={faXmark} /></button>
         <div className='form'>
           <div className='form-title'>
             <FontAwesomeIcon icon={faClipboard} />

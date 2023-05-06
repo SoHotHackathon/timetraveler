@@ -10,6 +10,7 @@ import axios from 'axios';
 function MainPage() {
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [selectId, setSelectId] = useState(1);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,15 +18,9 @@ function MainPage() {
       .then(response => setData(response.data));
   }, []);
 
-  const renderPeople = () => {
-    const listItems = [];
-    for (const d of data) {
-      listItems.push(<Box name={d.name} birth={d.birthDate} onClick={profileButtonClick} photo={d.photoUrl} />)
-    }
-    return listItems;
-  }
-
-  const profileButtonClick = () => {
+  const profileButtonClick = (id) => {
+    setSelectId(id);
+    console.log(id);
     setShowModal1(true);
   }
   const recordButtonClick = () => {
@@ -44,7 +39,7 @@ function MainPage() {
   return (
     <div className='fullPage'>
       {showModal1 && (
-        <ProfilePage onClose={handleModalClose} />
+        <ProfilePage id={selectId} onClose={handleModalClose} />
       )}
       {showModal2 && (
         <RecordPage onClose={handleModalClose} />
@@ -52,7 +47,9 @@ function MainPage() {
       <Header onClick={recordButtonClick}/>
       <div className='mainPage'>
         <div className='container'>
-          {renderPeople()}
+          {data.map(d => (
+            <Box id={d.id} name={d.name} birth={d.birthDate} onClick={(e) => profileButtonClick(e)} photo={d.photoUrl} />
+          ))}
           {/* <Box name={data[0].name ? "" :data[0].name} birth="1899" onClick={profileButtonClick} photo={url1} />
           <Box name="빌게이츠" birth="1950" onClick={profileButtonClick} photo={url2} />
           <Box name="세르게이 브린" birth="1976" onClick={profileButtonClick} photo={url3} /> */}
