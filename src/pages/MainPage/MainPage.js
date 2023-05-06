@@ -7,13 +7,15 @@ import CategoryBox from './CategoryBox/CategoryBox';
 function MainPage() {
 
   return (
-    <div className='FullPage'>
+    <div className='fullPage'>
       <Header />
-      <div className='MainPage'>
+      <div className='mainPage'>
         <div className='container'>
           <Box name="아이유" />
           <Box name="손흥민" />
           <Box name="이순신" />
+        </div>
+        <div className='container'>
           <Box name="잡스" />
           <Box name="박지성" />
           <Box name="몰라" />

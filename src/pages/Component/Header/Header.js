@@ -8,6 +8,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 function Header() {
   const movePage = useNavigate();
   const location = useLocation();
+  const isStartPage = location.pathname==='/';
+  const isMainPage = location.pathname==='/MainPage';
   const navigateToMain = () => {
     movePage("/MainPage");
   };
@@ -15,24 +17,32 @@ function Header() {
     movePage("/");
   };
 
+  let bgColorClass = '';
+
+  if (isStartPage) {
+    bgColorClass = 'start';
+  } else if (isMainPage) {
+    bgColorClass = 'main';
+  }
+
   return (
-    <header>
+    <header className={`${bgColorClass}`}>
       <h1>시간여행</h1>
-      {(location.pathname!=='/MainPage') ? null : (
+      {!isMainPage ? null : (
         <div className='inputBox'>
           <button className='inputBtn'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
           <input className='inputField'/>
         </div>
       )}
       <div className='buttonGroup'>
-        {(location.pathname!=='/') ? null : (
-          <button className='start' onClick={navigateToMain}>시작하기</button>
+        {!isStartPage ? null : (
+          <button className='startBtn' onClick={navigateToMain}>시작하기</button>
         )}
-        {(location.pathname!=='/MainPage') ? null : (
+        {!isMainPage ? null : (
           <button className='iconBtn'><FontAwesomeIcon icon={faChartColumn} /></button>
         )}
-        <button className='iconBtn' onClick={navigateToHome}><FontAwesomeIcon icon={faHouse} /></button>
-        <button className='iconBtn'><FontAwesomeIcon icon={faUser} /></button>
+        <button className={`iconBtn ${bgColorClass}`} onClick={navigateToHome}><FontAwesomeIcon icon={faHouse} /></button>
+        <button className={`iconBtn ${bgColorClass}`}><FontAwesomeIcon icon={faUser} /></button>
       </div>
     </header>
   );
