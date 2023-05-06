@@ -6,8 +6,8 @@ import CategoryBox from './CategoryBox/CategoryBox';
 
 function MainPage() {
   return (
-    <div>
-      {/* <Header /> */}
+    <div className='FullPage'>
+      <Header />
       <div className='MainPage'>
         <div className='container'>
           <Box name="아이유" />
