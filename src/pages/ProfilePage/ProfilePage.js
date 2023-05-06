@@ -9,17 +9,23 @@ function ProfilePage({onClose}) {
   const [selectMBTI, setSelectedMBTI] = useState('ISTJ');
   const [selectJOB, setSelectedJOB] = useState('대학생');
   const [inputAge, setInputAge] = useState(20);
+  const [inputGender, setInputGender] = useState('Male');
 
   const handleSelectedMBTIChange = (event) => {
     setSelectedMBTI(event.target.value);
   }
   const handleSelectedJOBChange = (event) => {
     setSelectedJOB(event.target.value);
-
+  }
+  const handleInputAgeChange = (event) => {
+    setInputAge(event.target.value);
+  }
+  const handleInputGenderChange = (event) => {
+    setInputGender(event.target.value);
   }
   const movePage = useNavigate();
     const navigateToChat = () => {
-        movePage("/ChatPage");
+        movePage("/ChatPage", {mbti: selectMBTI, job:selectJOB, age:inputAge, gender:inputGender});
     };
 
   return (
@@ -33,14 +39,14 @@ function ProfilePage({onClose}) {
           </div>
           <div className='age-input'>
             <label for='num'>나이 :  </label>
-            <input id='num' name='num' type='number' min={0} max={120}/>
+            <input id='num' name='num' type='number' min={0} max={120} onChange={handleInputAgeChange}/>
           </div>
           <div className='sex-input'>
             <lable for="sex">성별 : </lable>
             &nbsp;
-            남<input type="radio" name="sex" />
+            남<input type="radio" name="sex" value="Male" onChange={handleInputGenderChange} />
             &nbsp;
-            여<input type="radio" name="sex" />
+            여<input type="radio" name="sex" value="Female" onChange={handleInputGenderChange} />
           </div>
           <div className='job-input'>
             직업 : <select name="job" onChange={handleSelectedJOBChange}>
