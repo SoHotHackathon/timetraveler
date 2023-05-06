@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from './Box/Box';
 import './MainPage.scss';
 import Header from '../Component/Header/Header';
@@ -9,6 +9,33 @@ import RecordPage from '../RecordPage/RecordPage';
 function MainPage() {
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   fetch('http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/chat/people', {
+  //     method: 'GET',
+  //     mode:'no-cors',
+  //     headers: {
+  //       'Accept': '*/*',
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setData(data))
+  //     .then(error => console.error(error))
+  // }, []);
+  const getData = async() => {
+    const res = await fetch(
+      'http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/people',
+      {
+        mode: 'no-cors'
+      }
+    ).then((res) => res.json())
+    .then((myjson) => console.log(JSON.stringify(myjson)));
+  }
+  useEffect(() => {
+    getData();
+    console.log(data);
+  }, [])
 
   const profileButtonClick = () => {
     setShowModal1(true);
@@ -56,6 +83,12 @@ function MainPage() {
           <CategoryBox categoryname="연예인" />
         </div>
       </div>
+      {data.map(item => (
+        <div>
+          <h1>afd</h1>
+          <h1>{item.name}</h1>
+        </div>
+      ))}
     </div>
 
   );
