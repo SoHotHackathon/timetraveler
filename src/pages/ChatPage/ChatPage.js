@@ -1,18 +1,24 @@
 import React from 'react';
 import './ChatPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faChevronLeft, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function ChatPage() {
+  const movePage = useNavigate();
+  const navigateToBack = () => {
+    movePage(-1);
+  };
 
   return (
     <div className='ChatPage'>
       <div className='chat-head'>
-        {/* 뒤로가기 or 종료 아이콘 */}
-        <div>
-          <FontAwesomeIcon icon={faCircleUser} className='profile-icon'/>
-          <span className='profile-name'>이름&gt;</span>
+        <FontAwesomeIcon icon={faChevronLeft} className='back-icon' onClick={navigateToBack} />
+        <div className='top-profile'>
+          <FontAwesomeIcon icon={faCircleUser} className='profile-icon' />
+          <span className='profile-name'>이름 &gt;</span>
         </div>
+        <FontAwesomeIcon icon={faFloppyDisk} className='save-icon' />
       </div>
       <div className='display-container'>
         <ul className='chat-list'>
@@ -25,8 +31,10 @@ function ChatPage() {
         </ul>
       </div>
       <div className='input-container'>
-        <input type='text' className='chat-input' />
-        <button className='send-btn'>전송</button>
+        <span>
+          <input type='text' className='chat-input' />
+          <button className='send-btn'>전송</button>
+        </span>
       </div>
     </div>
 

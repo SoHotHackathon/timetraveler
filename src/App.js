@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<StartPage />} />
           <Route path="/MainPage" element={<MainPage />} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
+          <Route path='/ChatPage' element={<ChatPage />} />
         </Routes>
       </BrowserRouter>
     </div>

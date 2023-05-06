@@ -3,8 +3,14 @@ import './ProfilePage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function ProfilePage({onClose}) {
+  const movePage = useNavigate();
+    const navigateToChat = () => {
+        movePage("/ChatPage");
+    };
+
   return (
     <div className='ProfilePage'>
       <div className='Profile'>
@@ -53,7 +59,7 @@ function ProfilePage({onClose}) {
               <option value='op1'>ENFP</option>
             </select>
           </div>
-          <button className='enter-btn'>
+          <button className='enter-btn' onClick={navigateToChat}>
             입장하기
           </button>
         </div>

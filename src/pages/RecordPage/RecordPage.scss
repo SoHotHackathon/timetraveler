@@ -5,7 +5,8 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: rgba($color: #888888, $alpha: 0.8);
@@ -44,11 +45,11 @@
       }
 
       .record-list {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          padding-bottom: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 3rem;
 
         // align-items: center;
         .record-box {
@@ -57,6 +58,22 @@
             height: 14rem;
             border: none;
             border-radius: 0.5rem;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/JohnvonNeumann-LosAlamos.gif/200px-JohnvonNeumann-LosAlamos.gif');
+          }
+          p {
+            margin: 10px;
+          }
+        }
+
+        .record-box:nth-child(2) {
+          .record-pic {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Bill_Gates_2014.jpg/220px-Bill_Gates_2014.jpg');
+          }
+        }
+
+        .record-box:nth-child(3) {
+          .record-pic {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sergey_Brin_cropped.jpg/200px-Sergey_Brin_cropped.jpg');
           }
         }
       }

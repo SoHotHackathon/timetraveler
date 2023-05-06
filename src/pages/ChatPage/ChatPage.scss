@@ -1,45 +1,70 @@
 .ChatPage {
-  // width: 1000px;
+  width: 1000px;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-left: 250px;
+  border: 2px solid rgb(48, 48, 48);
   // overflow: hidden; 넘치는거 숨기기
 
   .chat-head {
     background-color: rgba(240, 248, 255, 0.688);
-    flex: 2;
     border-bottom: 1px solid gray;
-    .profile-icon {
-      color: rgb(225, 230, 234);
-      margin-top: 0.5rem;
-      font-size: 3.5rem;
+    flex: 2;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .back-icon, .save-icon {
+      color: rgb(85, 87, 88);
+      font-size: 2rem;
     }
+
+    .top-profile {
+      display: flex;
+      flex-direction: column;
+
+      .profile-icon {
+        color: rgb(225, 230, 234);
+        margin: 0.5rem 0;
+        font-size: 3.5rem;
+      }
+      .profile-name {
+        color: rgb(115, 114, 114);
+      }
+    }
+
 
   }
 
   .display-container {
-    // background-color: white;
+    background-color: rgba(116, 119, 120, 0.927);
     flex: 12;
     overflow-y: scroll; // 채팅 길어지면 스크롤
-    
+
     .chat-list {
       padding: 0;
       list-style: none;
       color: azure;
+
       li {
         display: flex;
         // justify-content: flex-start;
         // align-items: flex-end;
       }
+
       .sent {
         border: 2px solid rgb(94, 221, 249);
         height: 80%;
         flex-direction: row-reverse;
       }
+
       .received {
         border: 2px solid pink;
         height: 80%;
       }
+
       .message {
         border-radius: 3px;
         padding: 0.5rem;
@@ -50,21 +75,30 @@
   }
 
   .input-container {
+    background-color: rgba(247, 251, 255, 0.956);
     flex: 2;
-    // display: flex;
-    // justify-content: stretch;
-    // align-items: stretch;
-
-    .chat-input {
-      height: 100%;
-      border: none;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    span {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      .chat-input {
+        height: 100%;
+        border: none;
+        flex: 8;
+        font-size: 15px;
+      }
+      .send-btn {
+        height: 100%;
+        border: none;
+        background-color: rgb(243, 243, 185);
+        flex: 2;
+        font-size: 20px;
+      }
     }
 
-    .send-btn {
-      height: 100%;
-      border: none;
-      border-radius: 5px;
-      background-color: yellow;
-    }
   }
 }
