@@ -5,6 +5,7 @@ import Header from '../Component/Header/Header';
 import CategoryBox from './CategoryBox/CategoryBox';
 
 function MainPage() {
+
   return (
     <div className='FullPage'>
       <Header />
