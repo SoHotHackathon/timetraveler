@@ -6,7 +6,7 @@ const Box = (props) => {
     let backgroundColor = props.color;
 
     return (
-        <div className='box' onClick={props.onClick} style={backgroundColor}>
+        <div className='box' onClick={props.onClick} >
             <p>{Name}</p>
         </div>
     );
