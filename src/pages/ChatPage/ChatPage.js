@@ -9,6 +9,7 @@ function ChatPage(props) {
   const [memberId, setMemberId] = useState(1);
   const [isBtnClicked, setIsBtnClicked] = useState(false);
   const [inputTxt, setInputTxt] = useState("고민이에요");
+  const [conversation, setConversation] = useState();
 
   const handleClickBtn = async() => {
     if (!isBtnClicked) {
@@ -29,12 +30,19 @@ function ChatPage(props) {
       console.log(result);
       setMemberId(result);
 
-      const response2 = await axios({
-        url: `http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/chat/people?member_id='${memberId}'&person_id='${1}`,
-        method: 'post',
-      });
-      const result2 = response2.data;
+      const response2 = await axios.post(`http://ec2-54-180-24-100.ap-northeast-2.compute.amazonaws.com:8080/api/v1/chat/people?member_id=${memberId}&person_id=1`);
+      const result2 = response2.data.conversation;
       console.log(result2);
+
+      const result3 = [];
+      for(let i=0; i<result2.length; i++) {
+        if(i%2==0) {
+          result3.push(<li className='sent message'><span>{result2[i].message}</span></li>)
+        } else {
+          result3.push(<li className='received message'><span>{result2[i].message}</span></li>)
+        }
+      }
+      setConversation(result3);
     }
   };
   const handleInputTxtChange = (event) => {
@@ -58,18 +66,8 @@ function ChatPage(props) {
       </div>
       <div className='display-container'>
         <ul className='chat-list'>
-          <li className='received message'>
-            <span>안녕하세요. 고민이 무엇인가요?</span>
-          </li>
-          <li className='sent message'>
-            <span>공부가 하기 싫어요</span>
-          </li>
-          <li className='sent message'>
-            <span>공부가 하기 싫어요</span>
-          </li>
-          <li className='received message'>
-            <span>열심히 하세요.</span>
-          </li>
+          <li className='received message'><span>안녕하세요 고민이 뭔가요?</span></li>
+          {conversation}
         </ul>
       </div>
       <div className='input-container'>
