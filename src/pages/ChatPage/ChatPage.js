@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faChevronLeft, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-function ChatPage() {
+function ChatPage(props) {
   const movePage = useNavigate();
   const navigateToBack = () => {
     movePage(-1);
