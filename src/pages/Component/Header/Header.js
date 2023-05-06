@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faChartColumn } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faHouse, faUser, faChartColumn } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
@@ -18,6 +18,12 @@ function Header() {
   return (
     <header>
       <h1>시간여행</h1>
+      {(location.pathname!=='/MainPage') ? null : (
+        <div className='inputBox'>
+          <button className='inputBtn'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+          <input className='inputField'/>
+        </div>
+      )}
       <div className='buttonGroup'>
         {(location.pathname!=='/') ? null : (
           <button className='start' onClick={navigateToMain}>시작하기</button>

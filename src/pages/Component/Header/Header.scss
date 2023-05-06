@@ -1,5 +1,5 @@
 header {
-    background-color: lightgray;
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,29 +8,63 @@ header {
     top: 0; left: 0; right: 0;
 
     h1 {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         font-weight: bold;
-        color: white;
+        color: #DDDDDD;
         margin: 0;
+    }
+
+    .inputBox {
+        position: relative;
+    }
+
+    .inputField {
+        font-size: 1.6rem;
+        width: 25vw;
+        font-weight: bold;
+        background-color: #3e4044;
+        color: #DDDDDD;
+        border-radius: 2rem;
+        border: none;
+        height: 2.5rem;
+        padding-right: 3.2rem;
+        padding-left: 1.2rem;
+        margin-top: 0.9rem;
+        outline: none;
+    }
+
+    .inputBtn {
+        background-color: transparent;
+        border: none;
+        font-size: 1.6rem;;
+        position: absolute;
+        color: #DDDDDD;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        cursor: pointer;
     }
 
     button.start {
         font-size: 1.6rem;
         font-weight: bold;
-        background-color: #333333;
-        color: #FFBB00;
-        border-radius: 2rem;
+        background-color: #DDDDDD;
+        color: #a68b5a;
+        border-radius: 1.6rem;
         border: none;
-        height: 3rem;
-        padding: 0 1.4rem;
-        margin-top: 1.2rem;
+        height: 2.2rem;
+        padding: 0.2rem 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
     }
 
     button.iconBtn {
         background-color: transparent;
+        color: #DDDDDD;
         border: none;
-        font-size: 2.2rem;;
-        margin-left: 1.4rem;
-        margin-top: 1.2rem;
+        font-size: 2rem;;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
     }
 }
